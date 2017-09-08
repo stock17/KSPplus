@@ -20,6 +20,13 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/text_view_accords"
+        android:padding="8dp"
+        tools:text="G  G  G  G"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/text_view_song_text"
         tools:text="This is the first line \n This is the second line \n This is the third line \n And this is the fourth line \n "
         android:padding="8dp"/>

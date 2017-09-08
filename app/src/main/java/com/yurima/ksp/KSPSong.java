@@ -1,44 +1,53 @@
 package com.yurima.ksp;
 
-import android.media.Image;
+import java.util.ArrayList;
+import java.util.Arrays;
 
-/**
- * Created by Master on 9/8/2017.
- */
+class KSPSong {
 
-public class KSPSong {
+    private String mText;
+    private String mTitle;
+    private String mArtist;
+    private ArrayList<KSPChord> mVerseChords = new ArrayList<>();
 
-    String mText;
-    String mTitle;
-    String mArtist;
+    String getVerseChords() {
+        StringBuilder sb = new StringBuilder();
+        for (KSPChord chord : mVerseChords) {
+            sb.append(chord).append(" ");
+        }
+        return sb.toString();
+    }
 
+    void setVerseChords(KSPChord... chords) {
+        mVerseChords.addAll(Arrays.asList(chords));
+    }
 
-    public String getmText() {
+    String getText() {
         return mText;
     }
 
-    public void setmText(String mText) {
-        this.mText = mText;
+    void setText(String text) {
+        mText = text;
     }
 
-    public String getmTitle() {
+    String getTitle() {
         return mTitle;
     }
 
-    public void setmTitle(String mTitle) {
-        this.mTitle = mTitle;
+    void setTitle(String title) {
+        mTitle = title;
     }
 
-    public String getmArtist() {
+    public String getArtist() {
         return mArtist;
     }
 
-    public void setmArtist(String mArtist) {
-        this.mArtist = mArtist;
+    public void setArtist(String artist) {
+        mArtist = artist;
     }
 
 
-    public KSPSong(){
+    KSPSong(){
 
     }
 
