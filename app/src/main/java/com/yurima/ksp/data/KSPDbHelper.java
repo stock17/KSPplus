@@ -12,11 +12,12 @@ public class KSPDbHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "KSPSongs.db";
     public static final int DATABASE_VERSION = 1;
 
-    private static final String SQL_CREATE_TABLE = "CREATE TABLE " + KSPSongEntry.TABLE_NAME + "(" +
-            KSPSongEntry._ID + "INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            KSPSongEntry.COLUMN_TITLE + "TEXT NOT NULL, " +
-            KSPSongEntry.COLUMN_ATHOR + "TEXT NOT NULL" +
-            KSPSongEntry.COLUMN_TEXT + "TEXT";
+    private static final String SQL_CREATE_TABLE = "CREATE TABLE " + KSPSongEntry.TABLE_NAME + " (" +
+            KSPSongEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            KSPSongEntry.COLUMN_TITLE + " TEXT NOT NULL, " +
+            KSPSongEntry.COLUMN_ATHOR + " TEXT NOT NULL, " +
+            KSPSongEntry.COLUMN_TEXT + " TEXT" +
+            ");";
 
     private static final String SQL_DELETE_TABLE = "DROP TABLE " + KSPSongEntry.TABLE_NAME;
 
