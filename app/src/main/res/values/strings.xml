@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">KSP++</string>
+
+    <string name="edit_activity_save_button">SAVE</string>
+    <string name="edit_activity_cancel_button">CANCEL</string>
+
+
 </resources>

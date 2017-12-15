@@ -21,7 +21,7 @@ public class ListActivity extends AppCompatActivity {
         floatingActionButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ListActivity.this, DetailActivity.class);
+                Intent intent = new Intent(ListActivity.this, EditActivity.class);
                 startActivity(intent);
             }
         });
