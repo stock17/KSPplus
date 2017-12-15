@@ -22,9 +22,8 @@ final public class KSPSongContract {
         public static final String TABLE_NAME = "KSPSongs";
         public static final Uri CONTENT_URI = Uri.withAppendedPath(BASE_CONTENT_URI, PATH_KSPSongs);
 
-        public static final String COLUMN_ID = BaseColumns._ID;
         public static final String COLUMN_TITLE = "title";
-        public static final String COLUMN_ATHOR = "author";
+        public static final String COLUMN_ARTIST = "artist";
         public static final String COLUMN_TEXT = "text";
     }
 
