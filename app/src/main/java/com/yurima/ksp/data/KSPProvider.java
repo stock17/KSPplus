@@ -24,8 +24,10 @@ public class KSPProvider extends ContentProvider {
 
     static {
         sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
-        sUriMatcher.addURI(KSPSongContract.CONTENT_AUTHORITY, "KSPSongs", SONGS);
-        sUriMatcher.addURI(KSPSongContract.CONTENT_AUTHORITY, "KSPSongs/#", SONG_ID);
+        sUriMatcher.addURI(KSPSongContract.CONTENT_AUTHORITY,
+                KSPSongContract.PATH_KSPSongs, SONGS);
+        sUriMatcher.addURI(KSPSongContract.CONTENT_AUTHORITY,
+                KSPSongContract.PATH_KSPSongs + "/#", SONG_ID);
     }
 
     //TODO: Notification

@@ -41,12 +41,14 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:id="@+id/edit_button_save"
             android:text="@string/edit_activity_save_button"/>
 
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:id="@+id/edit_button_cancel"
             android:text="@string/edit_activity_cancel_button"/>
 
     </LinearLayout>
