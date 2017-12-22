@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.yurima.ksp.data.KSPSongContract;
 
@@ -34,16 +35,24 @@ public class EditActivity extends AppCompatActivity {
             loadSong();
         }
 
-
-
         Button saveButton = (Button) findViewById(R.id.edit_button_save);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                String title = mTitle.getText().toString().trim();
+                String artist = mArtist.getText().toString().trim();
+                String text = mText.getText().toString();
+
+                if (title.isEmpty() || artist.isEmpty() || text.isEmpty()) {
+                    Toast.makeText(EditActivity.this, "Fill all lines", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 ContentValues cv = new ContentValues();
-                cv.put(KSPSongContract.KSPSongEntry.COLUMN_ARTIST, mArtist.getText().toString());
-                cv.put(KSPSongContract.KSPSongEntry.COLUMN_TITLE, mTitle.getText().toString());
-                cv.put(KSPSongContract.KSPSongEntry.COLUMN_TEXT, mText.getText().toString());
+                cv.put(KSPSongContract.KSPSongEntry.COLUMN_ARTIST, artist);
+                cv.put(KSPSongContract.KSPSongEntry.COLUMN_TITLE, title);
+                cv.put(KSPSongContract.KSPSongEntry.COLUMN_TEXT, text);
 
                 if (mCurrentSongUri == null)
                     getContentResolver().insert(KSPSongContract.KSPSongEntry.CONTENT_URI, cv);
