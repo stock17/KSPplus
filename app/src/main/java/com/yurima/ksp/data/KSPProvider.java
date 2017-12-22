@@ -70,6 +70,7 @@ public class KSPProvider extends ContentProvider {
                 throw new IllegalArgumentException();
         }
 
+        cursor.setNotificationUri(getContext().getContentResolver(), uri);
         return cursor;
     }
 
@@ -96,6 +97,7 @@ public class KSPProvider extends ContentProvider {
 
         switch (match) {
             case SONGS:
+                getContext().getContentResolver().notifyChange(uri, null);
                 long id = db.insert(KSPSongContract.KSPSongEntry.TABLE_NAME, null, values);
                 return ContentUris.withAppendedId(uri, id);
             default:
@@ -125,6 +127,7 @@ public class KSPProvider extends ContentProvider {
                 throw new IllegalArgumentException();
         }
 
+        getContext().getContentResolver().notifyChange(uri, null);
         return numberOfRows;
     }
 
@@ -152,6 +155,7 @@ public class KSPProvider extends ContentProvider {
                 throw new IllegalArgumentException();
         }
 
+        getContext().getContentResolver().notifyChange(uri, null);
         return numberOfRows;
     }
 }

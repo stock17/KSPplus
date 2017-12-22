@@ -36,5 +36,6 @@ public class KSPSongCursorAdapter extends CursorAdapter {
 
         tvTitle.setText(strTitle);
         tvArtist.setText(strArtist);
+
     }
 }
