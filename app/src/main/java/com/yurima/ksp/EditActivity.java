@@ -52,6 +52,14 @@ public class EditActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        Button cancelButton = (Button) findViewById(R.id.edit_button_cancel);
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void loadSong() {
