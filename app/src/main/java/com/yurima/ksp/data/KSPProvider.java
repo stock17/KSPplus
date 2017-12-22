@@ -30,9 +30,6 @@ public class KSPProvider extends ContentProvider {
                 KSPSongContract.PATH_KSPSongs + "/#", SONG_ID);
     }
 
-    //TODO: Notification
-
-
     @Override
     public boolean onCreate() {
         mDbHelper = new KSPDbHelper(getContext());

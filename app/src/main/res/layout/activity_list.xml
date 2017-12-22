@@ -14,7 +14,9 @@
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/floating_action_button"
-        android:src="@android:drawable/ic_input_add"
+        android:src="@drawable/ic_music_note_white_24dp"
+
+        android:backgroundTint="@color/ActionButtonColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

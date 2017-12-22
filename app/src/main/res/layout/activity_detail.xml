@@ -7,23 +7,21 @@
     android:orientation="vertical"
     tools:context="com.yurima.ksp.DetailActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/detail_title"
-        android:gravity="center"
-        android:padding="8dp"
-        android:textSize="18sp"
-        tools:text="Song title"
-        />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/detail_artist"
-        android:padding="8dp"
-        android:gravity="right"
+        style="@style/DetailArtistTextView"
         tools:text="DDT"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/detail_title"
+        style="@style/DetailTitleTextView"
+        tools:text="Song title"
+        />
 
     <TextView
         android:layout_width="match_parent"
