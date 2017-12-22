@@ -1,11 +1,13 @@
 package com.yurima.ksp;
 
+import android.content.ContentUris;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import com.yurima.ksp.adapters.KSPSongCursorAdapter;
 import com.yurima.ksp.data.KSPSongContract;
@@ -38,6 +40,15 @@ public class ListActivity extends AppCompatActivity
         ListView listView = (ListView) findViewById(R.id.song_list_view);
         mCursorAdapter = new KSPSongCursorAdapter(this, null);
         listView.setAdapter(mCursorAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(ListActivity.this, DetailActivity.class);
+                intent.setData(ContentUris.withAppendedId(KSPSongContract.KSPSongEntry.CONTENT_URI,id));
+                startActivity(intent);
+            }
+        });
 
         getSupportLoaderManager().initLoader(LOADER_ID, null, this);
     }
