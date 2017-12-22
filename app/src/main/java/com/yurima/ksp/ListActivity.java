@@ -1,15 +1,24 @@
 package com.yurima.ksp;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ListView;
 import com.yurima.ksp.adapters.KSPSongCursorAdapter;
+import com.yurima.ksp.data.KSPSongContract;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.CursorLoader;
+import android.support.v4.content.Loader;
 
 
-public class ListActivity extends AppCompatActivity {
+public class ListActivity extends AppCompatActivity
+        implements LoaderManager.LoaderCallbacks<Cursor> {
+
+    private static final int LOADER_ID = 1;
+    private KSPSongCursorAdapter mCursorAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +36,33 @@ public class ListActivity extends AppCompatActivity {
         });
 
         ListView listView = (ListView) findViewById(R.id.song_list_view);
-        KSPSongCursorAdapter adapter = new KSPSongCursorAdapter(this, null);
-        listView.setAdapter(adapter);
+        mCursorAdapter = new KSPSongCursorAdapter(this, null);
+        listView.setAdapter(mCursorAdapter);
+
+        getSupportLoaderManager().initLoader(LOADER_ID, null, this);
     }
 
 
+    @Override
+    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+        String[] projection = new String[] {
+                KSPSongContract.KSPSongEntry._ID,
+                KSPSongContract.KSPSongEntry.COLUMN_TITLE,
+                KSPSongContract.KSPSongEntry.COLUMN_ARTIST,
+                KSPSongContract.KSPSongEntry.COLUMN_TEXT
+        };
+
+        return new CursorLoader(this, KSPSongContract.KSPSongEntry.CONTENT_URI,
+                projection, null, null, null);
+    }
+
+    @Override
+    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+        mCursorAdapter.swapCursor(data);
+    }
+
+    @Override
+    public void onLoaderReset(Loader<Cursor> loader) {
+        mCursorAdapter.swapCursor(null);
+    }
 }
